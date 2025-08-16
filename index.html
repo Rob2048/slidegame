@@ -245,12 +245,22 @@
 				/* z-index: 5; */
 				pointer-events: none;
 			}
+
+			/* Page 5 elements */
+			.bkg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transition: opacity 0.5s;
+			}
 		</style>
 	</head>
 	<body>
 		<audio id="audioCorrect" src="Correct.mp3" preload="auto"></audio>
 		<audio id="audioIncorrect" src="Incorrect.mp3" preload="auto"></audio>
-		
+
 		<div class="main-container">
 			<div class="slide-content">
 				<!-- Page 1 -->
@@ -303,7 +313,8 @@
 
 				<!-- Page 5 -->
 				<div class="slide-page" id="page5">
-					<img src="try_again.png" alt="Background" draggable="false" onclick="retryGame()" />
+					<img src="game_bkg.png" alt="Background" draggable="false" />
+					<img class="bkg" src="try_again.png" alt="Background" draggable="false" onclick="retryGame()" />
 				</div>
 
 				<!-- Page 6 -->
@@ -606,8 +617,8 @@
 				console.log('Melasyl dropped in target A');
 
 				if (gameState.onTargetA == 2) {
-					document.getElementById("audioIncorrect").currentTime = 0;
-					document.getElementById("audioIncorrect").play();
+					document.getElementById('audioIncorrect').currentTime = 0;
+					document.getElementById('audioIncorrect').play();
 					document.getElementById('page4').classList.remove('active');
 					document.getElementById('page5').classList.add('active');
 					return;
@@ -619,8 +630,8 @@
 				console.log('Melasyl dropped in target B');
 
 				if (gameState.onTargetB == 1) {
-					document.getElementById("audioIncorrect").currentTime = 0;
-					document.getElementById("audioIncorrect").play();
+					document.getElementById('audioIncorrect').currentTime = 0;
+					document.getElementById('audioIncorrect').play();
 					document.getElementById('page4').classList.remove('active');
 					document.getElementById('page5').classList.add('active');
 					return;
@@ -630,8 +641,8 @@
 				active.active = false;
 			} else {
 				console.log('Melasyl not dropped in any target');
-				document.getElementById("audioIncorrect").currentTime = 0;
-				document.getElementById("audioIncorrect").play();
+				document.getElementById('audioIncorrect').currentTime = 0;
+				document.getElementById('audioIncorrect').play();
 				document.getElementById('page4').classList.remove('active');
 				document.getElementById('page5').classList.add('active');
 				return;
@@ -641,8 +652,8 @@
 				congratsImages[0].style.opacity = '0';
 				congratsImages[1].style.opacity = '0';
 
-				document.getElementById("audioCorrect").currentTime = 0;
-				document.getElementById("audioCorrect").play();
+				document.getElementById('audioCorrect').currentTime = 0;
+				document.getElementById('audioCorrect').play();
 
 				const congrats = document.getElementById('congratsImage');
 				congrats.style.display = 'block';
@@ -650,8 +661,8 @@
 				setTimeout(() => {
 					congrats.style.opacity = '1';
 				}, 10);
-				setTimeout(() => {					
-					congrats.style.opacity = '0';					
+				setTimeout(() => {
+					congrats.style.opacity = '0';
 					document.getElementById('page4').classList.remove('active');
 					document.getElementById('page6').classList.add('active');
 					const endVideo = document.getElementById('endVideo');
@@ -673,8 +684,8 @@
 					congratsImages[0].style.opacity = '0';
 				}
 
-				document.getElementById("audioCorrect").currentTime = 0;
-				document.getElementById("audioCorrect").play();
+				document.getElementById('audioCorrect').currentTime = 0;
+				document.getElementById('audioCorrect').play();
 
 				congrats.style.display = 'block';
 				congrats.style.opacity = '0';
