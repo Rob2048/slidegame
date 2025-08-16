@@ -243,7 +243,7 @@
 		<div class="main-container">
 			<div class="slide-content">
 				<!-- Page 1 -->
-				<div class="slide-page" id="page1">
+				<div class="slide-page active" id="page1">
 					<img src="start_bkg.jpeg" alt="Background" draggable="false" />
 					<button class="start-btn" onclick="showPage2()">
 						<img src="start_button.png" alt="Start" draggable="false" />
@@ -273,7 +273,7 @@
 				</div>
 
 				<!-- Page 4 -->
-				<div class="slide-page active" id="page4">
+				<div class="slide-page" id="page4">
 					<img src="game_bkg.png" alt="Background" draggable="false" />
 
 					<div class="drop-target-a" id="dropTargetA" style="top: 15%; left: 45%; width: 500px; height: 150px"></div>
@@ -342,6 +342,7 @@
 		}
 
 		function checkDropTarget() {
+			console.log('Checking drop target');
 			const dropperRect = dropper.getBoundingClientRect();
 			const targetRect = dropTarget.getBoundingClientRect();
 
@@ -354,7 +355,7 @@
 				const vid = document.getElementById('introVideo');
 				if (vid) vid.play();
 
-				setInterval(() => {
+				setTimeout(() => {
 					document.getElementById('page3').classList.remove('active');
 					document.getElementById('page4pre').classList.add('active');
 				}, 6000);
