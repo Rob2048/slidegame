@@ -122,8 +122,8 @@
 
 			.dropper-img {
 				position: absolute;
-				bottom: 300px;
-				right: 85px;
+				top: 450px;
+				left: 1700px;
 				width: 140px;
 				height: auto;
 				cursor: grab;
@@ -636,8 +636,8 @@
 					endVideo.addEventListener('ended', () => {
 						// Restore dropper position
 						const dropper = document.querySelector('#page2 .dropper-img');
-						dropper.style.bottom = dropperStartPos.bottom;
-						dropper.style.right = dropperStartPos.right;
+						dropper.style.top = dropperStartPos.top;
+						dropper.style.left = dropperStartPos.left;
 
 						document.getElementById('page6').classList.remove('active');
 						document.getElementById('page1').classList.add('active');
@@ -688,7 +688,7 @@
 		},
 	];
 
-	const dropperStartPos = { bottom: '300px', right: '85px' };
+	const dropperStartPos = { top: '450px', left: '1700px' };
 
 	// Initialize melasyl drag when page 4 is shown
 	document.addEventListener('DOMContentLoaded', function () {
