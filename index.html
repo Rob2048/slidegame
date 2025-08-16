@@ -201,6 +201,14 @@
 				top: 36%;
 				left: 40%;
 				transition: opacity 0.5s;
+				opacity: 0;
+			}
+
+			.sidepanel {
+				position: absolute;
+				top: 0;
+				right: 0;
+				transition: opacity 0.5s;
 			}
 
 			.melasyl {
@@ -246,7 +254,7 @@
 		<div class="main-container">
 			<div class="slide-content">
 				<!-- Page 1 -->
-				<div class="slide-page active" id="page1">
+				<div class="slide-page " id="page1">
 					<img src="start_bkg.jpeg" alt="Background" draggable="false" />
 					<button class="start-btn" onclick="showPage2()">
 						<img src="start_button.png" alt="Start" draggable="false" />
@@ -276,8 +284,9 @@
 				</div>
 
 				<!-- Page 4 -->
-				<div class="slide-page" id="page4">
+				<div class="slide-page active" id="page4">
 					<img src="game_bkg.png" alt="Background" draggable="false" />
+					<img class="sidepanel" id="sidePanel" src="side_panel.png" alt="Background" draggable="false" />
 
 					<div class="drop-target-a" id="dropTargetA" style="top: 15%; left: 45%; width: 500px; height: 150px"></div>
 					<div class="drop-target-a" id="dropTargetB" style="top: 50%; left: 35%; width: 200px; height: 300px"></div>
@@ -671,9 +680,11 @@
 				congrats.style.opacity = '0';
 				setTimeout(() => {
 					congrats.style.opacity = '1';
+					document.getElementById('sidePanel').style.opacity = '1';
 				}, 10);
 				setTimeout(() => {
 					congrats.style.opacity = '0';
+					document.getElementById('sidePanel').style.opacity = '0';
 				}, 2000);
 			}
 		}
