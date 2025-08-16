@@ -634,6 +634,11 @@
 					const endVideo = document.getElementById('endVideo');
 					if (endVideo) endVideo.play();
 					endVideo.addEventListener('ended', () => {
+						// Restore dropper position
+						const dropper = document.querySelector('#page2 .dropper-img');
+						dropper.style.bottom = dropperStartPos.bottom;
+						dropper.style.right = dropperStartPos.right;
+
 						document.getElementById('page6').classList.remove('active');
 						document.getElementById('page1').classList.add('active');
 					});
